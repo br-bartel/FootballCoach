@@ -6,22 +6,22 @@ namespace FootballCoach
 {
     class Game
     {
+        public static string PlayerTeam { get; private set; }
+        public static string CompTeam { get; private set; }
         public static void StartGame()
         {
-            string playerTeam = CompName();
-            string compTeam = CompName();
+            PlayerTeam = CompName();
+            CompTeam = CompName();
 
-            while (playerTeam == compTeam)
-                playerTeam = CompName();
-            
-            Console.WriteLine($"Welcome, Coach! \n\nAre you ready to lead the {playerTeam} to victory against the {compTeam}?\n");
+            while (PlayerTeam == CompTeam)
+                PlayerTeam = CompName();
 
-            bool ready = true;
+            Console.WriteLine($"Welcome, Coach! \n\nAre you ready to lead the {PlayerTeam} to victory against the {CompTeam}?\n");
 
-            do
-            {
-                // main game play will go here.
-            } while (ready == true);
+            //do
+            //{
+                
+            //} while (ready == true);
         }
 
         public static string CompName()
@@ -40,6 +40,6 @@ namespace FootballCoach
             return team;
         }
 
-        public static void 
+         
     }
 }

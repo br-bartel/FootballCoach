@@ -6,7 +6,6 @@ namespace FootballCoach
     {
         static void Main()
         {
-            new Game();
             Game.StartGame();
         }
     }
