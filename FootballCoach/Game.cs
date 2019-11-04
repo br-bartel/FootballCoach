@@ -5,6 +5,7 @@ namespace FootballCoach
 {
     class Game
     {
+        public static bool Ready = true;
         public static string PlayerTeam { get; private set; }
         public static string CompTeam { get; private set; }
         public static void StartGame()
@@ -19,7 +20,14 @@ namespace FootballCoach
 
             Console.ReadKey();
 
-            Display.Scoreboard();
+            Field.Scoreboard();
+
+            
+
+            //if (Display.CompScore < Display.PlayerScore)
+            //    Console.WriteLine($"The {PlayerTeam} Win!"); // early draft of end game conditions
+            
+            
             //do
             //{
 
