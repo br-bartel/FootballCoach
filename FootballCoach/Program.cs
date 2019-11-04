@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FootballCoach
+﻿namespace FootballCoach
 {
     class Program
     {

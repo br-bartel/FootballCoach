@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FootballCoach
 {
@@ -8,7 +6,7 @@ namespace FootballCoach
     {
         public static void Play()
         {
-            
+            Console.WriteLine("Please choose a play: \n\n1) Run mid \n\n2) Run off \n\n3) Run Outside");
         }
     }
 }

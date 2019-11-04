@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace FootballCoach
 {
@@ -18,9 +17,12 @@ namespace FootballCoach
 
             Console.WriteLine($"Welcome, Coach! \n\nAre you ready to lead the {PlayerTeam} to victory against the {CompTeam}?\n");
 
+            Console.ReadKey();
+
+            Display.Scoreboard();
             //do
             //{
-                
+
             //} while (ready == true);
         }
 
@@ -40,6 +42,6 @@ namespace FootballCoach
             return team;
         }
 
-         
+
     }
 }
