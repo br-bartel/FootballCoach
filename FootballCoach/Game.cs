@@ -10,31 +10,23 @@ namespace FootballCoach
         public static string CompTeam { get; private set; }
         public static void StartGame()
         {
-            PlayerTeam = CompName();
-            CompTeam = CompName();
+            PlayerTeam = TeamName();
+            CompTeam = TeamName();
 
             while (PlayerTeam == CompTeam)
-                PlayerTeam = CompName();
+                PlayerTeam = TeamName();
 
             Console.WriteLine($"Welcome, Coach! \n\nAre you ready to lead the {PlayerTeam} to victory against the {CompTeam}?\n");
+            Console.WriteLine("The first team to score more than 21 points wins! \n\nPress the any key to start!");
 
             Console.ReadKey();
-
-            Field.Scoreboard();
-
-            
-
-            //if (Display.CompScore < Display.PlayerScore)
-            //    Console.WriteLine($"The {PlayerTeam} Win!"); // early draft of end game conditions
-            
-            
-            //do
-            //{
-
-            //} while (ready == true);
+            while (Ready == true)
+            {
+                Field.Scoreboard();
+            }
         }
 
-        public static string CompName()
+        public static string TeamName()
         {
             List<string> nflTeams = new List<string>() {"Cardinals", "Falcons", "Ravens", "Bills", "Panthers",
                                                         "Bengals", "Bears", "Browns", "Cowboys", "Broncos",
