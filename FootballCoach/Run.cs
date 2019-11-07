@@ -1,11 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FootballCoach
 {
     class Run : Plays
     {
+        /// <summary>
+        /// Tracks total rushing yards in the game.
+        /// </summary>
+        internal static int RushYards { get; set; }
+
+        /// <summary>
+        /// Using a random value, generates an outcome
+        /// simulating a run between the tackles
+        /// </summary>
         public static void MiddleRun()
         {
             Turnover = false;
@@ -23,12 +30,19 @@ namespace FootballCoach
                 YardsGained = 100 - Field.FieldPosition;
             else
                 Turnover = true;
-            
+
             if (!Turnover)
-                Console.WriteLine($"\nRun up the middle for {YardsGained} yards");
+            {
+                Console.WriteLine($"\n#{Player.Rb1} Run up the middle for {YardsGained} yards");
+                RushYards += YardsGained;
+            }
 
         }
 
+        /// <summary>
+        /// Using a random value, generates an outcome
+        /// simulating a run off tackle
+        /// </summary>
         public static void OffTackleRun()
         {
             Turnover = false;
@@ -48,9 +62,16 @@ namespace FootballCoach
                 Turnover = true;
 
             if (!Turnover)
-                Console.WriteLine($"\nRun off tackle for {YardsGained} yards");
+            {
+                Console.WriteLine($"\n#{Player.Rb2} Run off tackle for {YardsGained} yards");
+                RushYards += YardsGained;
+            }
         }
 
+        /// <summary>
+        /// Using a random value, generates an outcome
+        /// simulating a run outside, i.e. end around, pitch.
+        /// </summary>
         public static void OutsideRun()
         {
             Turnover = false;
@@ -70,7 +91,10 @@ namespace FootballCoach
                 Turnover = true;
 
             if (!Turnover)
-                Console.WriteLine($"\nRun outside for {YardsGained} yards");
+            {
+                Console.WriteLine($"\n#{Player.Rb1} Run outside for {YardsGained} yards");
+                RushYards += YardsGained;
+            }
         }
     }
 }
