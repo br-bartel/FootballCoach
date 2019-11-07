@@ -57,13 +57,7 @@ namespace FootballCoach
                     break;
                 }
 
-                DistToGo -= Plays.YardsGained;
-
-                if (DistToGo <= 0)
-                {
-                    i = -1; // sets so the iterator will be at 0 for next pass (0 index is 1st down)
-                    DistToGo = 10; // resets down distance
-                }
+                DistToGo -= Plays.YardsGained; // subtracts yards gained on the play from the distance to go                
 
                 FieldPosition += Plays.YardsGained; // updates based on the stored value of yards gained
 
@@ -85,6 +79,13 @@ namespace FootballCoach
                     break;
                 }
 
+                if (DistToGo <= 0) // handles first down if result of the play wasn't a touchdown
+                {
+                    i = -1; // sets so the iterator will be at 0 for next pass (0 index is 1st down)
+                    DistToGo = 10; // resets down distance
+                    Console.WriteLine("\nFirst Down!");
+                }
+
                 if (i == 3 && DistToGo > 0) // if there is still yards left to go on 4th down, notify that the ball was turned over
                     Console.WriteLine("Turnover on Downs");
 
@@ -97,7 +98,7 @@ namespace FootballCoach
             if (PlayerScore >= maxValue) // first team over 21 points wins, with a message printed out to match            
                 PlayerWin();
 
-            if (Plays.Turnover == false)
+            if (Plays.Turnover == false && Game.Ready == true)
                 CompTurn();
 
             if (CompScore >= maxValue)
@@ -144,8 +145,16 @@ namespace FootballCoach
         /// </summary>
         public static void PlayerLoss()
         {
+            List<string> lossText = new List<string>() { "managment is deciding if you really are the best fit for the franchise moving forward...",
+                                                         "you are left wondering at the futility of it all...",
+                                                         "your only consolation is that you aren't the Browns...",
+                                                         "you're starting to think that retirement might be the way to go...",
+                                                         "at least there is always next year..."};
+
+            int rand = Plays.random.Next(0, 5);
+
             Console.Clear();
-            Console.WriteLine($"\nThe {Game.CompTeam} win, and managment is deciding if you really are the best fit for the franchise moving forward...");
+            Console.WriteLine($"The {Game.CompTeam} win, and {lossText[rand]}");
             Console.WriteLine($"\n{Game.PlayerTeam}: {PlayerScore} \n{Game.CompTeam}: {CompScore}\n");
             Console.WriteLine($"Final {Game.PlayerTeam} Stats: \n\nRushing Yards: {Run.RushYards} \nPassing Yards: {Pass.PassYards} " +
                 $"\nTotal Offense: {Run.RushYards + Pass.PassYards}" +

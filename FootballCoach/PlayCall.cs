@@ -14,8 +14,8 @@ namespace FootballCoach
         /// </summary>
         public static void Play() // the user chooses the play here
         {
-            Console.WriteLine("Choose a play: \n\n1) Run Middle \n\n2) Run Off Tackle \n\n3) Run Outside \n\n" +
-                              "4) Short Pass\n\n5) Mid Pass \n\n6) Long Pass \n");
+            Console.WriteLine("Choose a play: \n\n1) Run Middle    2) Run Off Tackle    3) Run Outside " +
+                                             "\n\n4) Short Pass    5) Medium Pass       6) Long Pass \n");
 
             bool validInput = Int32.TryParse(Console.ReadLine(), out int input); // parses the user input to get an int
 

@@ -7,8 +7,6 @@
         /// </summary>
         static void Main()
         {
-            //SoundPlayer soundPlayer = new SoundPlayer();
-
             Game.StartGame();
         }
     }

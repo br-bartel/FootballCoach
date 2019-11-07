@@ -29,7 +29,7 @@ namespace FootballCoach
             CompTeam = TeamName();
 
             while (PlayerTeam == CompTeam)
-                PlayerTeam = TeamName();
+                CompTeam = TeamName();
 
             Player.Roster();
 
@@ -41,13 +41,15 @@ namespace FootballCoach
 
             do
             {
-                Console.WriteLine("Please enter the score you want to play to (7 - 72):");
+                Console.WriteLine("Please enter the score you want to play to (7 - 77):\n");
                 value = Int32.TryParse(Console.ReadLine(), out maxValue);
-            } while (value == false || maxValue < 7 || maxValue > 72);
+            } while (value == false || maxValue < 7 || maxValue > 77);
 
             Console.WriteLine($"\nThe first team to score {maxValue} or more points wins! \n\nPress the any key to start!");
 
-            Console.ReadKey();
+            if (Console.ReadLine() == "konami code")
+                PlayerTeam = "Tibouron Sharks";
+
             while (Ready == true)
             {
                 Field.Scoreboard(maxValue);
@@ -61,7 +63,7 @@ namespace FootballCoach
         public static string TeamName()
         {
             List<string> nflTeams = new List<string>() {"Cardinals", "Falcons", "Ravens", "Bills", "Panthers",
-                                                        "Bengals", "Bears", "Browns", "Cowboys", "Broncos",
+                                                        "Bengals", "Bears", "Cowboys", "Broncos",
                                                         "Lions", "Packers", "Texans", "Colts", "Jaguars",
                                                         "Chiefs", "Chargers", "Rams", "Dolphins", "Vikings", "Patriots",
                                                         "Saints", "Giants", "Jets", "Raiders", "Eagles", "Steelers",
@@ -69,7 +71,7 @@ namespace FootballCoach
 
             Random rand = new Random();
 
-            string team = nflTeams[rand.Next(0, 33)];
+            string team = nflTeams[rand.Next(0, 32)];
 
             return team;
         }
