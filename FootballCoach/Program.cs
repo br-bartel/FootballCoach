@@ -1,4 +1,6 @@
-﻿namespace FootballCoach
+﻿using System;
+
+namespace FootballCoach
 {
     class Program
     {
@@ -7,7 +9,9 @@
         /// </summary>
         static void Main()
         {
-            Game.StartGame();
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.Clear();
+            Game.StartGame();            
         }
     }
 }

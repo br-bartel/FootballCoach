@@ -68,7 +68,15 @@ namespace FootballCoach
                     PlayerScore += 7;
                     break;
                 }
-                else if (FieldPosition >= 90) // within 10 yds of the endzone
+
+                if (DistToGo <= 0) // handles first down if result of the play wasn't a touchdown
+                {
+                    i = -1; // sets so the iterator will be at 0 for next pass (0 index is 1st down)
+                    DistToGo = 10; // resets down distance
+                    Console.WriteLine("\nFirst Down!");
+                }
+
+                if (FieldPosition >= 90) // within 10 yds of the endzone
                 {
                     DistToGo = 100 - FieldPosition;
                 }
@@ -77,14 +85,7 @@ namespace FootballCoach
                     Console.WriteLine("\nSafety :(");
                     CompScore += 2;
                     break;
-                }
-
-                if (DistToGo <= 0) // handles first down if result of the play wasn't a touchdown
-                {
-                    i = -1; // sets so the iterator will be at 0 for next pass (0 index is 1st down)
-                    DistToGo = 10; // resets down distance
-                    Console.WriteLine("\nFirst Down!");
-                }
+                }                
 
                 if (i == 3 && DistToGo > 0) // if there is still yards left to go on 4th down, notify that the ball was turned over
                     Console.WriteLine("Turnover on Downs");

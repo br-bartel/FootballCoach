@@ -35,14 +35,14 @@ namespace FootballCoach
 
             Console.WriteLine($"Welcome, Coach! \n\nAre you ready to lead the {PlayerTeam} to victory against the {CompTeam}?\n");
 
-            // let the user choose the score to play too
+            // let the user choose the score to play to
             bool value;
-            int maxValue;
+            short maxValue;
 
             do
             {
                 Console.WriteLine("Please enter the score you want to play to (7 - 77):\n");
-                value = Int32.TryParse(Console.ReadLine(), out maxValue);
+                value = short.TryParse(Console.ReadLine(), out maxValue);
             } while (value == false || maxValue < 7 || maxValue > 77);
 
             Console.WriteLine($"\nThe first team to score {maxValue} or more points wins! \n\nPress the any key to start!");
